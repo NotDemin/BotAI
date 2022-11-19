@@ -100,6 +100,8 @@ module.exports = {
             const SamplingMethod = interaction.options.getString('samplingmethod') ?? 'Euler'
             const Scale = interaction.options.getNumber('cfgscale') ?? '12'
             const Seed = interaction.options.getInteger('seed') ?? '-1'
+            const Height = interaction.options.getInteger('height') ?? 512
+            const Width = interaction.options.getInteger('width') ?? 512
 
             fs.readFile(`./datatemplate.json`, (err, data) => {
 
@@ -113,6 +115,8 @@ module.exports = {
                 data.data[5] = `${SamplingMethod}`                
                 data.data[10] = parseFloat(Scale)
                 data.data[11] = parseInt(Seed, 10)
+                data.data[17] = parseInt(Height, 10)
+                data.data[18] = parseInt(Width, 10)
 
                 axios.post('http://127.0.0.1:7860/api/predict', data)
                     .then( async (res) => {
