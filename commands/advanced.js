@@ -103,7 +103,7 @@ module.exports = {
             const Height = interaction.options.getInteger('height') ?? 512
             const Width = interaction.options.getInteger('width') ?? 512
 
-            fs.readFile(`./datatemplate.json`, (err, data) => {
+            fs.readFile(`./txt2imgTemplate.json`, (err, data) => {
 
                 if(err) throw err
 

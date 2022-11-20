@@ -17,7 +17,7 @@ module.exports = {
                 const PositivPrompt = interaction.fields.getTextInputValue('PositifPrompt');
                 const NegativPrompt = interaction.fields.getTextInputValue('NegativPrompt');
 
-                fs.readFile(`./datatemplate.json`, (err, data) => {
+                fs.readFile(`./txt2imgTemplate.json`, (err, data) => {
                     if(err) throw err
                     data = JSON.parse(data)
                     data.data[0] = `${PositivPrompt}`
